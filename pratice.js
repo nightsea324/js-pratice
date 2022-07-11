@@ -93,3 +93,17 @@ function findSmallTotal(array, n) {
     }
     return result;
 }
+
+// 回傳小於n陣列
+console.log("findSmallSmall");
+console.log(findSmallSmall([1, 2, 3, 4], 3));
+function findSmallSmall(array, n) {
+    let result = [];
+
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] < n) {
+            result.push(array[i]);
+        }
+    }
+    return result;
+}
