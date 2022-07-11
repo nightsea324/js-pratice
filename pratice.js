@@ -42,7 +42,7 @@ function star(n){
 }
 
 // 測第一字母是否為大寫
-console.log("charAtIsUpperCase")
+console.log("isUpperCase")
 console.log(isUpperCase("Avb"))
 function isUpperCase(str){
     let firstChar = str.charAt();
@@ -52,4 +52,17 @@ function isUpperCase(str){
     }else{
         return false
     }
+}
+
+// 找大寫字母位置
+console.log("position")
+console.log(position("aBcd"))
+function position(str){
+    console.log(str.length)
+    for (var i = 0 ; i < str.length ; i ++){
+        if (str.charAt(i) == str.charAt(i).toUpperCase()){
+            return str.charAt(i) + " " + i
+        }
+    }
+    return "-1"
 }
