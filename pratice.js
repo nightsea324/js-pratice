@@ -71,10 +71,25 @@ console.log("findSmallCount");
 console.log(findSmallCount([1, 2, 3, 4], 3));
 function findSmallCount(array, n) {
     let count = 0;
+
     for (var i = 0; i < array.length; i++) {
         if (array[i] < n) {
             count++;
         }
     }
     return count;
+}
+
+// 回傳小於n總和
+console.log("findSmallTotal");
+console.log(findSmallTotal([1, 2, 3, 4], 3));
+function findSmallTotal(array, n) {
+    let result = 0;
+
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] < n) {
+            result += array[i];
+        }
+    }
+    return result;
 }
