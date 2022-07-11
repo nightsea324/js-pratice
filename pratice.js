@@ -1,7 +1,7 @@
+// Level 1 ----------
 // 使用for & while 印出1到9
 console.log("print 1 to 9");
 console.log("use for");
-
 let input = 9;
 
 // for
