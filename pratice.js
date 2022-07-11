@@ -58,7 +58,6 @@ function isUpperCase(str){
 console.log("position")
 console.log(position("aBcd"))
 function position(str){
-    console.log(str.length)
     for (var i = 0 ; i < str.length ; i ++){
         if (str.charAt(i) == str.charAt(i).toUpperCase()){
             return str.charAt(i) + " " + i
