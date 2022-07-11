@@ -5,14 +5,14 @@ console.log("use for");
 let input = 9;
 
 // for
-for (var i = 0 ; i < input ; i++){
+for (var i = 0; i < input; i++) {
     console.log(i + 1);
 }
 
 // while
 console.log("use while");
 var i = 0;
-while (i < input){
+while (i < input) {
     console.log(i + 1);
     i++;
 }
@@ -20,11 +20,11 @@ while (i < input){
 // print函式，印出1到n
 console.log("print");
 console.log(print(9));
-function print(n){
+function print(n) {
     let result = "";
 
-    for (var i = 0 ; i < n ; i++){
-        result += (i + 1) + "\n";
+    for (var i = 0; i < n; i++) {
+        result += i + 1 + "\n";
     }
     return result;
 }
@@ -32,36 +32,49 @@ function print(n){
 // star函式，印出n個*
 console.log("star");
 console.log(star(9));
-function star(n){
+function star(n) {
     let result = "";
 
-    for (var i = 0 ; i < n ; i++){
+    for (var i = 0; i < n; i++) {
         result += "*";
     }
     return result;
 }
 
 // 測第一字母是否為大寫
-console.log("isUpperCase")
-console.log(isUpperCase("Avb"))
-function isUpperCase(str){
+console.log("isUpperCase");
+console.log(isUpperCase("Avb"));
+function isUpperCase(str) {
     let firstChar = str.charAt();
-    
-    if (firstChar == firstChar.toUpperCase()){
-        return true
-    }else{
-        return false
+
+    if (firstChar == firstChar.toUpperCase()) {
+        return true;
+    } else {
+        return false;
     }
 }
 
 // 找大寫字母位置
-console.log("position")
-console.log(position("aBcd"))
-function position(str){
-    for (var i = 0 ; i < str.length ; i ++){
-        if (str.charAt(i) == str.charAt(i).toUpperCase()){
-            return str.charAt(i) + " " + i
+console.log("position");
+console.log(position("aBcd"));
+function position(str) {
+    for (var i = 0; i < str.length; i++) {
+        if (str.charAt(i) == str.charAt(i).toUpperCase()) {
+            return str.charAt(i) + " " + i;
         }
     }
-    return "-1"
+    return "-1";
+}
+
+// 回傳小於n總數
+console.log("findSmallCount");
+console.log(findSmallCount([1, 2, 3, 4], 3));
+function findSmallCount(array, n) {
+    let count = 0;
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] < n) {
+            count++;
+        }
+    }
+    return count;
 }
