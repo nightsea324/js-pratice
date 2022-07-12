@@ -104,3 +104,18 @@ function sum(array) {
         return total + val;
     }, 0);
 }
+
+// Level 2 -----------
+// 印三角形
+console.log("printTriangle", printTriangle(5));
+function printTriangle(n) {
+    let result = "";
+
+    for (let i = 0; i < n; i++) {
+        result += `${"*".repeat(i)}\n`;
+    }
+    for (let i = n; i > 0; i--) {
+        result += `${"*".repeat(i)}\n`;
+    }
+    return result;
+}
