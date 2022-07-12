@@ -40,8 +40,7 @@ function star(n) {
 }
 
 // isUpperCase - 測第一字母是否為大寫
-console.log("isUpperCase");
-console.log(isUpperCase("Avb"));
+console.log("isUpperCase = ", isUpperCase("Avb"));
 function isUpperCase(str) {
     let firstChar = str.charAt();
 
@@ -49,8 +48,7 @@ function isUpperCase(str) {
 }
 
 // position - 找第一個大寫字母位置
-console.log("position");
-console.log(position("aBcd"));
+console.log("position = ", position("aBcd"));
 function position(str) {
     let array = str.split("");
     let result = "-1";
@@ -64,15 +62,13 @@ function position(str) {
 }
 
 // findSmallCount - 回傳小於n總數量
-console.log("findSmallCount");
-console.log(findSmallCount([1, 2, 3, 4], 3));
+console.log("findSmallCount = ", findSmallCount([1, 2, 3, 4], 3));
 function findSmallCount(array, n) {
     return array.filter((val) => val < n).length;
 }
 
 // findSmallTotal - 回傳小於n總和
-console.log("findSmallTotal");
-console.log(findSmallTotal([1, 2, 3, 4], 3));
+console.log("findSmallTotal = ", findSmallTotal([1, 2, 3, 4], 3));
 function findSmallTotal(array, n) {
     return array
         .filter((val) => val < n)
@@ -80,22 +76,20 @@ function findSmallTotal(array, n) {
 }
 
 // findAllSmall - 回傳小於n陣列
-console.log("findAllSmall");
-console.log(findAllSmall([1, 2, 3, 4], 3));
+console.log("findAllSmall = ", findAllSmall([1, 2, 3, 4], 3));
 function findAllSmall(array, n) {
     return array.filter((val) => val < n);
 }
 
 // sum - 計算陣列總和
-console.log("sum");
-console.log(sum([1, 2, 3, 4]));
+console.log("sum = ", sum([1, 2, 3, 4]));
 function sum(array) {
     return array.reduce((total, val) => total + val, 0);
 }
 
 // Level 2 -----------
 // printTriangle - 印三角形
-console.log("printTriangle", printTriangle(5));
+console.log("printTriangle = ", printTriangle(5));
 function printTriangle(n) {
     let result = "";
 
@@ -109,7 +103,7 @@ function printTriangle(n) {
 }
 
 // fib - 費氏數列
-console.log("fib", fib(10));
+console.log("fib = ", fib(10));
 function fib(n) {
     if (n < 2) {
         return n;
@@ -119,11 +113,22 @@ function fib(n) {
 }
 
 // recursive - 字串反轉
-console.log("reverse", reverse("abcd"));
+console.log("reverse = ", reverse("abcd"));
 function reverse(str) {
     if (str === "") {
         return "";
     }
     // recursive
     return reverse(str.substr(1)) + str.charAt();
+}
+
+// swap - 大小寫互換
+console.log("swap = ", swap("abCD"));
+function swap(str) {
+    return str
+        .split("")
+        .map((val) =>
+            val === val.toUpperCase() ? val.toLowerCase() : val.toUpperCase()
+        )
+        .join("");
 }
