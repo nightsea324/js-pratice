@@ -2,7 +2,7 @@
 // 使用for & while 印出1到9
 console.log("print 1 to 9");
 console.log("use for");
-let input = 9;
+const input = 9;
 
 // for
 for (let i = 0; i < input; i++) {
@@ -54,64 +54,53 @@ function isUpperCase(str) {
 console.log("position");
 console.log(position("aBcd"));
 function position(str) {
-    for (let i = 0; i < str.length; i++) {
-        if (str.charAt(i) == str.charAt(i).toUpperCase()) {
-            return `${str.charAt(i)} ${i}`;
+    let array = str.split("");
+    let result = "-1";
+
+    array.forEach((val, index) => {
+        if (val == val.toUpperCase()) {
+            result = `${val} ${index}`;
         }
-    }
-    return "-1";
+    });
+    return result;
 }
 
-// 回傳小於n總數
+// 回傳小於n總數量
 console.log("findSmallCount");
 console.log(findSmallCount([1, 2, 3, 4], 3));
 function findSmallCount(array, n) {
-    let count = 0;
-
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] < n) {
-            count++;
-        }
-    }
-    return count;
+    return array.filter((val) => {
+        return val < n;
+    }).length;
 }
 
 // 回傳小於n總和
 console.log("findSmallTotal");
 console.log(findSmallTotal([1, 2, 3, 4], 3));
 function findSmallTotal(array, n) {
-    let result = 0;
-
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] < n) {
-            result += array[i];
-        }
-    }
-    return result;
+    return array
+        .filter((val) => {
+            return val < n;
+        })
+        .reduce((total, val) => {
+            return total + val;
+        }, 0);
 }
 
 // 回傳小於n陣列
-console.log("findSmallSmall");
-console.log(findSmallSmall([1, 2, 3, 4], 3));
-function findSmallSmall(array, n) {
-    let result = [];
-
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] < n) {
-            result.push(array[i]);
-        }
-    }
-    return result;
+console.log("findAllSmall");
+console.log(findAllSmall([1, 2, 3, 4], 3));
+function findAllSmall(array, n) {
+    return array.filter((val) => {
+        return val < n;
+    });
 }
 
 // 計算陣列總和
 console.log("sum");
 console.log(sum([1, 2, 3, 4]));
 function sum(array) {
-    let result = 0;
-
-    for (let i = 0; i < array.length; i++) {
-        result += array[i];
-    }
-    return result;
+    return array.reduce((total, val) => {
+        return total + val;
+    }, 0);
 }
