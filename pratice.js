@@ -172,3 +172,15 @@ function asc(a, b) {
 function desc(a, b) {
     return a - b;
 }
+
+// Level 3 -----------
+// isPrime - 判斷質數
+console.log("isPrime = ", isPrime(13));
+function isPrime(n) {
+    for (let i = 2; i < n; i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    return n > 1;
+}
