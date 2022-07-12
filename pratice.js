@@ -69,9 +69,7 @@ function position(str) {
 console.log("findSmallCount");
 console.log(findSmallCount([1, 2, 3, 4], 3));
 function findSmallCount(array, n) {
-    return array.filter((val) => {
-        return val < n;
-    }).length;
+    return array.filter((val) => val < n).length;
 }
 
 // 回傳小於n總和
@@ -79,30 +77,22 @@ console.log("findSmallTotal");
 console.log(findSmallTotal([1, 2, 3, 4], 3));
 function findSmallTotal(array, n) {
     return array
-        .filter((val) => {
-            return val < n;
-        })
-        .reduce((total, val) => {
-            return total + val;
-        }, 0);
+        .filter((val) => val < n)
+        .reduce((total, val) => total + val, 0);
 }
 
 // 回傳小於n陣列
 console.log("findAllSmall");
 console.log(findAllSmall([1, 2, 3, 4], 3));
 function findAllSmall(array, n) {
-    return array.filter((val) => {
-        return val < n;
-    });
+    return array.filter((val) => val < n);
 }
 
 // 計算陣列總和
 console.log("sum");
 console.log(sum([1, 2, 3, 4]));
 function sum(array) {
-    return array.reduce((total, val) => {
-        return total + val;
-    }, 0);
+    return array.reduce((total, val) => total + val, 0);
 }
 
 // Level 2 -----------
