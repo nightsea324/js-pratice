@@ -132,3 +132,38 @@ function swap(str) {
         )
         .join("");
 }
+
+// getMin - 取最小值
+console.log("getMin = ", getMin([-1, 1, 2, 3, -3, 4]));
+function getMin(array) {
+    return array.reduce(
+        (min, val) => (val < min ? (min = val) : min),
+        array[0]
+    );
+}
+
+// getNMin - 取第n個最小值
+console.log("getNMin = ", getNMin([-1, 1, 2, 3, -3, 4], 3));
+function getNMin(array, n) {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; j++) {
+            if (array[i] < array[j]) {
+                let temp = array[j];
+                array[j] = array[i];
+                array[i] = temp;
+            }
+        }
+    }
+    return array[n];
+}
+
+// useSort - 排序
+console.log("getSort = ", getSort([-1, 1, 2, 3, -3, 4]));
+function getSort(array) {
+    return array.sort(asc);
+}
+
+// asc - 排序規則(升冪)
+function asc(a, b) {
+    return a - b;
+}
