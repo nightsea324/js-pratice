@@ -5,13 +5,13 @@ console.log("use for");
 let input = 9;
 
 // for
-for (var i = 0; i < input; i++) {
+for (let i = 0; i < input; i++) {
     console.log(i + 1);
 }
 
 // while
 console.log("use while");
-var i = 0;
+let i = 0;
 while (i < input) {
     console.log(i + 1);
     i++;
@@ -23,8 +23,8 @@ console.log(print(9));
 function print(n) {
     let result = "";
 
-    for (var i = 0; i < n; i++) {
-        result += i + 1 + "\n";
+    for (let i = 0; i < n; i++) {
+        result += `${i + 1}\n`;
     }
     return result;
 }
@@ -35,7 +35,7 @@ console.log(star(9));
 function star(n) {
     let result = "";
 
-    for (var i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) {
         result += "*";
     }
     return result;
@@ -47,20 +47,16 @@ console.log(isUpperCase("Avb"));
 function isUpperCase(str) {
     let firstChar = str.charAt();
 
-    if (firstChar == firstChar.toUpperCase()) {
-        return true;
-    } else {
-        return false;
-    }
+    return firstChar == firstChar.toUpperCase();
 }
 
 // 找大寫字母位置
 console.log("position");
 console.log(position("aBcd"));
 function position(str) {
-    for (var i = 0; i < str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
         if (str.charAt(i) == str.charAt(i).toUpperCase()) {
-            return str.charAt(i) + " " + i;
+            return `${str.charAt(i)} ${i}`;
         }
     }
     return "-1";
@@ -72,7 +68,7 @@ console.log(findSmallCount([1, 2, 3, 4], 3));
 function findSmallCount(array, n) {
     let count = 0;
 
-    for (var i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         if (array[i] < n) {
             count++;
         }
@@ -86,7 +82,7 @@ console.log(findSmallTotal([1, 2, 3, 4], 3));
 function findSmallTotal(array, n) {
     let result = 0;
 
-    for (var i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         if (array[i] < n) {
             result += array[i];
         }
@@ -100,7 +96,7 @@ console.log(findSmallSmall([1, 2, 3, 4], 3));
 function findSmallSmall(array, n) {
     let result = [];
 
-    for (var i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         if (array[i] < n) {
             result.push(array[i]);
         }
@@ -114,7 +110,7 @@ console.log(sum([1, 2, 3, 4]));
 function sum(array) {
     let result = 0;
 
-    for (var i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         result += array[i];
     }
     return result;
