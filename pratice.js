@@ -1,15 +1,15 @@
 // Level 1 ----------
 // 使用for & while 印出1到9
 console.log("print 1 to 9");
-console.log("use for");
 const input = 9;
+console.log("use for");
 
-// for
+// for -
 for (let i = 0; i < input; i++) {
     console.log(i + 1);
 }
 
-// while
+// while -
 console.log("use while");
 let i = 0;
 while (i < input) {
@@ -17,9 +17,8 @@ while (i < input) {
     i++;
 }
 
-// print函式，印出1到n
-console.log("print");
-console.log(print(9));
+// print - 印出1到n
+console.log("print = ", print(9));
 function print(n) {
     let result = "";
 
@@ -29,9 +28,8 @@ function print(n) {
     return result;
 }
 
-// star函式，印出n個*
-console.log("star");
-console.log(star(9));
+// star - 印出n個*
+console.log("star = ", star(9));
 function star(n) {
     let result = "";
 
@@ -41,7 +39,7 @@ function star(n) {
     return result;
 }
 
-// 測第一字母是否為大寫
+// isUpperCase - 測第一字母是否為大寫
 console.log("isUpperCase");
 console.log(isUpperCase("Avb"));
 function isUpperCase(str) {
@@ -50,7 +48,7 @@ function isUpperCase(str) {
     return firstChar == firstChar.toUpperCase();
 }
 
-// 找大寫字母位置
+// position - 找第一個大寫字母位置
 console.log("position");
 console.log(position("aBcd"));
 function position(str) {
@@ -65,14 +63,14 @@ function position(str) {
     return result;
 }
 
-// 回傳小於n總數量
+// findSmallCount - 回傳小於n總數量
 console.log("findSmallCount");
 console.log(findSmallCount([1, 2, 3, 4], 3));
 function findSmallCount(array, n) {
     return array.filter((val) => val < n).length;
 }
 
-// 回傳小於n總和
+// findSmallTotal - 回傳小於n總和
 console.log("findSmallTotal");
 console.log(findSmallTotal([1, 2, 3, 4], 3));
 function findSmallTotal(array, n) {
@@ -81,14 +79,14 @@ function findSmallTotal(array, n) {
         .reduce((total, val) => total + val, 0);
 }
 
-// 回傳小於n陣列
+// findAllSmall - 回傳小於n陣列
 console.log("findAllSmall");
 console.log(findAllSmall([1, 2, 3, 4], 3));
 function findAllSmall(array, n) {
     return array.filter((val) => val < n);
 }
 
-// 計算陣列總和
+// sum - 計算陣列總和
 console.log("sum");
 console.log(sum([1, 2, 3, 4]));
 function sum(array) {
@@ -96,7 +94,7 @@ function sum(array) {
 }
 
 // Level 2 -----------
-// 印三角形
+// printTriangle - 印三角形
 console.log("printTriangle", printTriangle(5));
 function printTriangle(n) {
     let result = "";
@@ -110,11 +108,22 @@ function printTriangle(n) {
     return result;
 }
 
-// 費氏數列
+// fib - 費氏數列
 console.log("fib", fib(10));
 function fib(n) {
     if (n < 2) {
         return n;
     }
+    // recursive
     return fib(n - 1) + fib(n - 2);
+}
+
+// recursive - 字串反轉
+console.log("reverse", reverse("abcd"));
+function reverse(str) {
+    if (str === "") {
+        return "";
+    }
+    // recursive
+    return reverse(str.substr(1)) + str.charAt();
 }
