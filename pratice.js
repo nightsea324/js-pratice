@@ -167,3 +167,8 @@ function getSort(array) {
 function asc(a, b) {
     return a - b;
 }
+
+// desc - 排序規則(降冪)
+function desc(a, b) {
+    return a - b;
+}
