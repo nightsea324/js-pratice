@@ -119,3 +119,12 @@ function printTriangle(n) {
     }
     return result;
 }
+
+// 費氏數列
+console.log("fib", fib(10));
+function fib(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
