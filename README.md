@@ -26,11 +26,10 @@ node pratice.js
 ```
 
 -   promise
-    1. 將要跑的 Function 取消註解
-    2.
-    ```
-       node promise.js
-    ```
+
+```
+node promise.js
+```
 
 ## Note
 
