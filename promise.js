@@ -1,72 +1,87 @@
 // promise練習
-// 01 -
-//const promise = new Promise((resolve, reject) => {
-//console.log(1);
-//resolve();
-//console.log(2);
-//});
 
-//promise.then(() => {
-//console.log(3);
-//});
-//console.log(4);
+// promiseTest - promise接取練習
+function promiseTest() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (+new Date() % 8 === 0) {
+                reject('server err');
+            } else {
+                resolve({ name: 'NightSea', position: 'front-end engineer' });
+            }
+        }, (+new Date() % 8) * 1000);
+    });
+}
 
-// 02 -
-//const first = () =>
-//new Promise((resolve, reject) => {
-//console.log(3);
-//let p = new Promise((resolve, reject) => {
-//console.log(7);
-//setTimeout(() => {
-//console.log(5);
-//resolve(6);
-//}, 0);
-//resolve(1);
-//});
-//resolve(2);
-//p.then((arg) => {
-//console.log(arg);
-//});
-//});
+// getData - 取得資料
+let getData = () => {
+    promiseTest()
+        .then(list => {
+            console.log(list);
+            return {
+                name: 'Jiar',
+                position: 'front-end engineer',
+            };
+        })
+        .catch(err => console.error(err))
+        .then(list => {
+            console.log(list);
+        })
+        .then(() => getData());
+};
+//getData();
 
-//first().then((arg) => {
-//console.log(arg);
-//});
-//console.log(4);
+// trafficLight - 紅綠燈
+// red - 紅燈
+function red() {
+    console.log('red');
+}
+// green - 綠燈
+function green() {
+    console.log('green');
+}
+// yellow - 黃燈
+function yellow() {
+    console.log('yellow');
+}
 
-// 03 -
-//const promise1 = new Promise((resolve, reject) => {
-//setTimeout(() => {
-//resolve("succes");
-//}, 1000);
-//});
-//const promise2 = promise1.then(() => {
-//try {
-//throw new Error("error!!!");
-//} catch (err) {
-//console.log(err);
-//}
-//});
+// setLight - 控制燈號
+let setLight = (timer, color) => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            color();
+            resolve();
+        }, timer);
+    });
+};
 
-//console.log("promise1", promise1);
-//console.log("promise2", promise2);
+// trafficLight -
+let trafficLight = () => {
+    Promise.resolve()
+        .then(() => setLight(3000, red))
+        .then(() => setLight(2000, green))
+        .then(() => setLight(1000, yellow))
+        .then(() => usecase());
+};
+//trafficLight();
 
-//setTimeout(() => {
-//console.log("promise1", promise1);
-//console.log("promise2", promise2);
-//}, 2000);
-//
-// 04 -
-//const promise = new Promise((resolve, reject) => {
-//resolve('success1');
-//reject('error');
-//resolve('success2');
-//});
+// promiseAllTest - promiseAll測試
+let promiseAllTest = async () => {
+    let promise1 = Promise.resolve('success');
+    let promise2 = Promise.reject('error');
+    let promise3 = Promise.resolve({ success: 'success', value: 'promise' });
 
-//promise
-//.then(res => {
-//console.log('then: ', res);
-//})
-//.catch(err => {
-//console.log('catch: '), err;
-//});
+    try {
+        let promiseAll1 = await Promise.all([promise1, promise2, promise3]);
+        let promiseAll2 = await Promise.all([promise1, promise3]);
+        console.log(promiseAll1);
+        console.log(promiseAll2);
+    } catch (error) {
+        console.error(error);
+    }
+
+    let promiseAll2 = await Promise.all([promise1, promise3]);
+    console.log(promiseAll2);
+    console.log(promiseAll2[1].value);
+};
+//promiseAllTest();
