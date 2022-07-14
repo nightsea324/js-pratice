@@ -1,8 +1,8 @@
 // Level 1 ----------
 // 使用for & while 印出1到9
-console.log("print 1 to 9");
+console.log('print 1 to 9');
 const input = 9;
-console.log("use for");
+console.log('use for');
 
 // for -
 for (let i = 0; i < input; i++) {
@@ -10,7 +10,7 @@ for (let i = 0; i < input; i++) {
 }
 
 // while -
-console.log("use while");
+console.log('use while');
 let i = 0;
 while (i < input) {
     console.log(i + 1);
@@ -18,9 +18,9 @@ while (i < input) {
 }
 
 // print - 印出1到n
-console.log("print = ", print(9));
+console.log('print = ', print(9));
 function print(n) {
-    let result = "";
+    let result = '';
 
     for (let i = 0; i < n; i++) {
         result += `${i + 1}\n`;
@@ -29,18 +29,18 @@ function print(n) {
 }
 
 // star - 印出n個*
-console.log("star = ", star(9));
+console.log('star = ', star(9));
 function star(n) {
-    let result = "";
+    let result = '';
 
     for (let i = 0; i < n; i++) {
-        result += "*";
+        result += '*';
     }
     return result;
 }
 
 // isUpperCase - 測第一字母是否為大寫
-console.log("isUpperCase = ", isUpperCase("Avb"));
+console.log('isUpperCase = ', isUpperCase('Avb'));
 function isUpperCase(str) {
     let firstChar = str.charAt();
 
@@ -48,10 +48,10 @@ function isUpperCase(str) {
 }
 
 // position - 找第一個大寫字母位置
-console.log("position = ", position("aBcd"));
+console.log('position = ', position('aBcd'));
 function position(str) {
-    let array = str.split("");
-    let result = "-1";
+    let array = str.split('');
+    let result = '-1';
 
     array.forEach((val, index) => {
         if (val == val.toUpperCase()) {
@@ -62,48 +62,46 @@ function position(str) {
 }
 
 // findSmallCount - 回傳小於n總數量
-console.log("findSmallCount = ", findSmallCount([1, 2, 3, 4], 3));
+console.log('findSmallCount = ', findSmallCount([1, 2, 3, 4], 3));
 function findSmallCount(array, n) {
-    return array.filter((val) => val < n).length;
+    return array.filter(val => val < n).length;
 }
 
 // findSmallTotal - 回傳小於n總和
-console.log("findSmallTotal = ", findSmallTotal([1, 2, 3, 4], 3));
+console.log('findSmallTotal = ', findSmallTotal([1, 2, 3, 4], 3));
 function findSmallTotal(array, n) {
-    return array
-        .filter((val) => val < n)
-        .reduce((total, val) => total + val, 0);
+    return array.filter(val => val < n).reduce((total, val) => total + val, 0);
 }
 
 // findAllSmall - 回傳小於n陣列
-console.log("findAllSmall = ", findAllSmall([1, 2, 3, 4], 3));
+console.log('findAllSmall = ', findAllSmall([1, 2, 3, 4], 3));
 function findAllSmall(array, n) {
-    return array.filter((val) => val < n);
+    return array.filter(val => val < n);
 }
 
 // sum - 計算陣列總和
-console.log("sum = ", sum([1, 2, 3, 4]));
+console.log('sum = ', sum([1, 2, 3, 4]));
 function sum(array) {
     return array.reduce((total, val) => total + val, 0);
 }
 
 // Level 2 -----------
 // printTriangle - 印三角形
-console.log("printTriangle = ", printTriangle(5));
+console.log('printTriangle = ', printTriangle(5));
 function printTriangle(n) {
-    let result = "";
+    let result = '';
 
     for (let i = 0; i < n; i++) {
-        result += `${"*".repeat(i)}\n`;
+        result += `${'*'.repeat(i)}\n`;
     }
     for (let i = n; i > 0; i--) {
-        result += `${"*".repeat(i)}\n`;
+        result += `${'*'.repeat(i)}\n`;
     }
     return result;
 }
 
 // fib - 費氏數列
-console.log("fib = ", fib(10));
+console.log('fib = ', fib(10));
 function fib(n) {
     if (n < 2) {
         return n;
@@ -113,28 +111,28 @@ function fib(n) {
 }
 
 // recursive - 字串反轉
-console.log("reverse = ", reverse("abcd"));
+console.log('reverse = ', reverse('abcd'));
 function reverse(str) {
-    if (str === "") {
-        return "";
+    if (str === '') {
+        return '';
     }
     // recursive
     return reverse(str.substr(1)) + str.charAt();
 }
 
 // swap - 大小寫互換
-console.log("swap = ", swap("abCD"));
+console.log('swap = ', swap('abCD'));
 function swap(str) {
     return str
-        .split("")
-        .map((val) =>
+        .split('')
+        .map(val =>
             val === val.toUpperCase() ? val.toLowerCase() : val.toUpperCase()
         )
-        .join("");
+        .join('');
 }
 
 // getMin - 取最小值
-console.log("getMin = ", getMin([-1, 1, 2, 3, -3, 4]));
+console.log('getMin = ', getMin([-1, 1, 2, 3, -3, 4]));
 function getMin(array) {
     return array.reduce(
         (min, val) => (val < min ? (min = val) : min),
@@ -143,14 +141,15 @@ function getMin(array) {
 }
 
 // getNMin - 取第n個最小值
-console.log("getNMin = ", getNMin([-1, 1, 2, 3, -3, 4], 3));
+console.log('getNMin = ', getNMin([-1, 1, 2, 3, -3, 4], 3));
 function getNMin(array, n) {
-    for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array.length; j++) {
-            if (array[i] < array[j]) {
-                let temp = array[j];
-                array[j] = array[i];
-                array[i] = temp;
+    for (let index = 0; index < array.length; index++) {
+        for (let scanIndex = 0; scanIndex < array.length; scanIndex++) {
+            if (array[index] < array[scanIndex]) {
+                [array[index], array[scanIndex]] = [
+                    array[scanIndex],
+                    array[index],
+                ];
             }
         }
     }
@@ -158,7 +157,7 @@ function getNMin(array, n) {
 }
 
 // useSort - 排序
-console.log("getSort = ", getSort([-1, 1, 2, 3, -3, 4]));
+console.log('getSort = ', getSort([-1, 1, 2, 3, -3, 4]));
 function getSort(array) {
     return array.sort(asc);
 }
@@ -175,7 +174,7 @@ function desc(a, b) {
 
 // Level 3 -----------
 // isPrime - 判斷質數
-console.log("isPrime = ", isPrime(13));
+console.log('isPrime = ', isPrime(13));
 function isPrime(n) {
     for (let i = 2; i < n; i++) {
         if (n % i === 0) {
