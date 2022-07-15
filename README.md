@@ -21,17 +21,17 @@
 
 -   pratice
 
-```sh
-node pratice.js
-```
+	```sh
+	node pratice.js
+	```
 
 -   promise
 
   1. 將要執行的function取消註解
-  2. 
-    ```sh
-    node promise.js
-    ```
+  2. 執行
+		```sh
+		node promise.js
+		```
 
 ## Note
 
