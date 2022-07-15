@@ -20,18 +20,17 @@
 ## Run
 
 -   pratice
-
-	```sh
-	node pratice.js
-	```
+    ```sh
+    node pratice.js
+    ```
 
 -   promise
 
   1. 將要執行的function取消註解
   2. 執行
-		```sh
-		node promise.js
-		```
+        ```sh
+        node promise.js
+        ```
 
 ## Note
 
