@@ -44,13 +44,19 @@ function green() {
 function yellow() {
     console.log('yellow');
 }
+// error - 錯誤
+function error() {
+    console.log('error');
+}
 
 // setLight - 控制燈號
 let setLight = (timer, color) => {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            color();
-            resolve();
+            if (timer > 3000) {
+                reject('reject');
+            }
+            resolve(color());
         }, timer);
     });
 };
@@ -61,7 +67,9 @@ let trafficLight = () => {
         .then(() => setLight(3000, red))
         .then(() => setLight(2000, green))
         .then(() => setLight(1000, yellow))
-        .then(() => usecase());
+        .then(() => setLight(4000, error))
+        .catch(err => console.error(err))
+        .then(() => trafficLight());
 };
 //trafficLight();
 
