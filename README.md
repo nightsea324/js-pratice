@@ -28,7 +28,7 @@ node pratice.js
 -   promise
 
   1. 將要執行的function取消註解
-  2.  
+  2. 
     ```sh
     node promise.js
     ```
