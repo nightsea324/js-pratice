@@ -54,9 +54,9 @@ let setLight = (timer, color) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (timer > 3000) {
-                reject('reject');
+                return reject('reject');
             }
-            resolve(color());
+            return resolve(color());
         }, timer);
     });
 };
