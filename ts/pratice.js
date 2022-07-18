@@ -407,7 +407,8 @@ console.log(helloWorld('NightSea'));
 //age: number;
 //role: string;
 //}
-//type PowerUser = Omit<User & Admin, 'type'> & { type: 'powerUser' };
+//type PowerUser = Omit<User, 'type'> &
+//Omit<Admin, 'type'> & { type: 'powerUser' };
 //export type Person = User | Admin | PowerUser;
 //export const persons: Person[] = [
 //{
