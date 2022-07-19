@@ -12,4 +12,6 @@ export class AppComponent {
   title = 'hello-angular';
   // 列車站名資料
   stationList = stationList;
+  // 顏色
+  color = '';
 }
