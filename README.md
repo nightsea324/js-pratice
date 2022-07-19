@@ -12,14 +12,18 @@
 
 -   Required
 
-| Platform | Version |
-| :------- | ------: |
-| npm      |   8.1.2 |
-| node     | 16.13.2 |
+| Platform   | Version |
+| :--------- | ------: |
+| npm        |   8.1.2 |
+| Node       | 16.13.2 |
+| Angular CLI|  14.0.5 |
 
 ## Run
 
 -   pratice
+    ```sh
+    cd js
+    ```
     ```sh
     node pratice.js
     ```
@@ -29,8 +33,18 @@
   1. 將要執行的function取消註解
   2. 執行
         ```sh
+        cd js
+        ```
+        ```sh
         node promise.js
         ```
+-  hello-angular
+    ```sh
+    cd angular/hello-angular
+    ```
+    ```sh
+    ng serve
+    ```
 
 ## Note
 
