@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>MessageBoard</title>
+  </head>
+  <body>
+    <!--新增留言-->
+    <form (ngSubmit)="createMessage()" class="createForm">
+      <!--留言者-->
+      <div class="createParam">
+        <p>姓名</p>
+        <input type="text" name="name" [(ngModel)]="name" />
+      </div>
+
+      <!--留言內容-->
+      <div class="createParam">
+        <p>留言內容</p>
+        <input type="text" name="content" [(ngModel)]="content" />
+      </div>
+
+      <!--新增留言按鈕-->
+      <div class="createParam">
+        <button type="submit" class="createMessageBtn">新增留言</button>
+      </div>
+    </form>
+    <!--留言板列表-->
+    <div class="messageBoard">
+      <table>
+        <thead>
+          <tr>
+            <td>留言者</td>
+            <td>留言內容</td>
+            <td>留言時間</td>
+          </tr>
+        </thead>
+        <ng-container *ngFor="let message of messageList">
+          <tr>
+            <td>{{ message.name }}</td>
+            <td>{{ message.message }}</td>
+            <td>{{ message.date | date: "yyyy-MM-dd HH:mm:ss" }}</td>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+  </body>
+</html>

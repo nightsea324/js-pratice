@@ -1,0 +1,88 @@
+/*新增留言表單*/
+.createForm {
+  display: flex;
+  /*水平*/
+  align-items: center;
+  /*垂直*/
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+/*新增留言元素*/
+.createParam {
+  display: flex;
+  width: 30vw;
+  /*垂直*/
+  align-items: center;
+  /*水平*/
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+/*新增留言元素label*/
+.createLabel {
+  display: flex;
+  /*水平*/
+  align-items: flex-start;
+  /*垂直*/
+  justify-content: center;
+  flex-direction: row;
+}
+
+/*新增留言元素textBox*/
+.createTextBox {
+  display: flex;
+  /*垂直*/
+  align-items: flex-end;
+  /*水平*/
+  justify-content: flex-end;
+}
+
+/*新增留言button*/
+.createMessageBtn {
+  background-color: aqua;
+  width: 100vw;
+}
+
+.messageBoard {
+  display: flex;
+  /*垂直*/
+  align-items: center;
+  /*水平*/
+  justify-content: center;
+}
+
+.messageRow {
+  width: 100vw;
+}
+
+table {
+  width: 100vw;
+  /*垂直*/
+  align-items: center;
+  /*水平*/
+  justify-content: center;
+}
+
+tr {
+  display: flex;
+  width: 100vw;
+  /*垂直*/
+  align-items: center;
+  /*水平*/
+  justify-content: space-between;
+}
+
+td {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+
+/*.test {*/
+/*height: 50px;*/
+/*width: 1000px;*/
+/*margin: auto;*/
+/*background-color: aqua;*/
+/*}*/
