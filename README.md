@@ -21,6 +21,7 @@
 ## Run
 
 -   pratice
+
     ```sh
     cd js
     ```
@@ -39,6 +40,7 @@
         node promise.js
         ```
 -  hello-angular
+
     ```sh
     cd angular/hello-angular
     ```
