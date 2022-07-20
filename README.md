@@ -39,6 +39,7 @@
         ```sh
         node promise.js
         ```
+
 -  hello-angular
 
     ```sh
@@ -46,6 +47,15 @@
     ```
     ```sh
     ng serve
+    ```
+
+-  message-board
+
+    ```sh
+    cd angular/message-board
+    ```
+    ```sh
+    npm start
     ```
 
 ## Note
