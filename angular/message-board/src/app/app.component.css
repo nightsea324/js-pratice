@@ -20,69 +20,41 @@
   flex-direction: row;
 }
 
-/*新增留言元素label*/
-.createLabel {
-  display: flex;
-  /*水平*/
-  align-items: flex-start;
-  /*垂直*/
-  justify-content: center;
-  flex-direction: row;
-}
-
-/*新增留言元素textBox*/
-.createTextBox {
-  display: flex;
-  /*垂直*/
-  align-items: flex-end;
-  /*水平*/
-  justify-content: flex-end;
-}
-
 /*新增留言button*/
 .createMessageBtn {
   background-color: aqua;
   width: 100vw;
 }
 
+/*留言板列表*/
 .messageBoard {
   display: flex;
+  width: 100vw;
   /*垂直*/
   align-items: center;
   /*水平*/
   justify-content: center;
-}
-
-.messageRow {
-  width: 100vw;
 }
 
 table {
   width: 100vw;
-  /*垂直*/
-  align-items: center;
+  display: flex;
   /*水平*/
-  justify-content: center;
+  align-items: center;
+  /*垂直*/
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 tr {
   display: flex;
-  width: 100vw;
-  /*垂直*/
-  align-items: center;
-  /*水平*/
-  justify-content: space-between;
+  width: 80vw;
+  flex-direction: row;
 }
 
 td {
   display: flex;
   width: 100vw;
+  /*水平*/
   justify-content: center;
 }
-
-/*.test {*/
-/*height: 50px;*/
-/*width: 1000px;*/
-/*margin: auto;*/
-/*background-color: aqua;*/
-/*}*/

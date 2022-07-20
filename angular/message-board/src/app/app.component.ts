@@ -16,23 +16,13 @@ export class AppComponent {
   // messages - 留言
   messageList: Message[] = [
     {
-      name: 'name',
-      message: 'message',
+      name: 'tempName',
+      message: 'tempMessage',
       date: new Date(),
     },
     {
-      name: 'name',
-      message: 'message',
-      date: new Date(),
-    },
-    {
-      name: 'name',
-      message: 'message',
-      date: new Date(),
-    },
-    {
-      name: 'name',
-      message: 'message',
+      name: 'tempName',
+      message: 'tempMessage',
       date: new Date(),
     },
   ];
@@ -53,6 +43,7 @@ export class AppComponent {
     // 清空
     this.content = '';
   }
+
   // checkWhenCreate - 新增留言檢查
   checkWhenCreate(): boolean {
     return !this.name.trim() || !this.content.trim;
