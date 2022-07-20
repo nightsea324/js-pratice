@@ -35,7 +35,7 @@ export class AppComponent {
     }
 
     // 建立新message物件
-    const newMessage = new Message('testName', 'testContent');
+    const newMessage = new Message(this.name, this.content);
 
     // 推入message列表
     this.messageList.push(newMessage);
