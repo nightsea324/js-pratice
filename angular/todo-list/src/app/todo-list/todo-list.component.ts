@@ -10,7 +10,7 @@ import { Todo } from './todo.model';
   styleUrls: ['./todo-list.component.css'],
 })
 export class TodoListComponent implements OnInit {
-  public todoList: string[] = [];
+  public todoList: Todo[] = [];
   constructor(private todoListSrv: TodoListService) {
     this.todoListSrv = todoListSrv;
   }
@@ -25,22 +25,85 @@ export class TodoListComponent implements OnInit {
     if (!event) {
       return;
     }
+
+    // convert
     const target = event.target as HTMLInputElement;
+
+    // 建立新todo物件
     const newTodo = target.value.trim();
-    if (newTodo) {
-      this.todoListSrv.createTodo(newTodo);
-      target.value = '';
+    if (!newTodo) {
+      return;
     }
-    this.getTodoList();
+
+    // create
+    this.todoListSrv.createTodo(newTodo);
+
+    // clear
+    target.value = '';
+
+    return;
   }
 
   // getTodoList - 取得待辦事項列表
   getTodoList(): void {
-    JSON.parse(JSON.stringify(this.todoListSrv.getTodoList())).forEach(
-      (todo: Todo) => {
-        this.todoList.push(todo.getTitle());
-      }
-    );
+    // getList & push
+    this.todoList = this.todoListSrv.getTodoList();
+
+    return;
+  }
+
+  // deleteTodo - 刪除待辦事項
+  deleteTodo(index: number): void {
+    // deleteByIndex
+    this.todoListSrv.deleteTodo(index);
+
+    return;
+  }
+
+  // clickIsCompleted - 點擊已完成
+  clickIsCompleted(todo: Todo): void {
+    // on or off
+    switch (todo.getIsCompleted()) {
+      case true:
+        todo.isCompletedOff();
+        break;
+      case false:
+        todo.isCompletedOn();
+        break;
+    }
+
+    return;
+  }
+
+  // editModeOn - 開啟編輯模式
+  editModeOn(todo: Todo): void {
+    todo.editModeOn();
+    return;
+  }
+
+  // editModeOff - 關閉編輯模式
+  editModeOff(todo: Todo): void {
+    todo.editModeOff();
+    return;
+  }
+
+  // updateTodo - 更新待辦事項
+  updateTodo(todo: Todo, newTitle: String, index: number): void {
+    // checkWhenUpdate
+    if (!todo.getEditMode) {
+      return;
+    }
+    if (!newTitle) {
+      this.todoListSrv.deleteTodo(index);
+      return;
+    }
+
+    // new title
+    const title = newTitle.trim();
+    // update todo
+    todo.updateTitle(title);
+    todo.editModeOff();
+
     return;
   }
 }

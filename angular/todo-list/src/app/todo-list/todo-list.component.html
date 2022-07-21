@@ -5,19 +5,40 @@
       class="new-todo"
       placeholder="What needs to be done?"
       autofocus
-      (keyup.enter)="createTodo($event)"
+      (keyup.enter)="createTodo($event); getTodoList()"
     />
   </header>
 
   <!--待辦事項列表-->
   <section class="main" *ngIf="todoList.length">
     <ul class="todo-list">
-      <li *ngFor="let todo of todoList">
+      <li
+        *ngFor="let todo of todoList; let index = index"
+        [class.completed]="todo.getIsCompleted()"
+        [class.editing]="todo.getEditMode()"
+      >
         <div class="view">
-          <input class="toggle" type="checkbox" />
-          <label>{{ todo }}</label>
-          <button class="destroy"></button>
+          <input
+            class="toggle"
+            type="checkbox"
+            (click)="clickIsCompleted(todo); getTodoList()"
+            [checked]="todo.getIsCompleted()"
+          />
+          <label (dblclick)="todo.editModeOn()">{{ todo.getTitle() }}</label>
+          <button
+            class="destroy"
+            (click)="deleteTodo(index); getTodoList()"
+          ></button>
         </div>
+        <input
+          class="edit"
+          #editedTodo
+          *ngIf="todo.getEditMode()"
+          [value]="todo.getTitle()"
+          (blur)="updateTodo(todo, editedTodo.value, index)"
+          (keyup.enter)="updateTodo(todo, editedTodo.value, index)"
+          (keyup.escape)="editModeOff(todo)"
+        />
       </li>
     </ul>
   </section>
