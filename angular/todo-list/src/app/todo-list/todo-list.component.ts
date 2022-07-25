@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { TodoListService } from './todo-list.service';
 // Class
 import { Todo } from './todo.model';
+// Filter
+import { Filter } from './interface.interface';
 
 @Component({
   selector: 'app-todo-list',
@@ -16,7 +18,7 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTodoList();
+    this.getTodoList(null);
   }
 
   // createTodo - 新增待辦事項
@@ -45,9 +47,14 @@ export class TodoListComponent implements OnInit {
   }
 
   // getTodoList - 取得待辦事項列表
-  getTodoList(): void {
-    // getList & push
-    this.todoList = this.todoListSrv.getTodoList();
+  getTodoList(isCompleted: boolean | null): void {
+    if (isCompleted === null) {
+      // getList & push
+      this.todoList = this.todoListSrv.getTodoList(null);
+      return;
+    }
+    const filter: Filter = { IsCompleted: isCompleted };
+    this.todoList = this.todoListSrv.getTodoList(filter);
 
     return;
   }
@@ -103,6 +110,14 @@ export class TodoListComponent implements OnInit {
     // update todo
     todo.updateTitle(title);
     todo.editModeOff();
+
+    return;
+  }
+
+  // deleteAllCompletedTodo - 刪除所有已完成待辦事項
+  deleteAllCompletedTodo(): void {
+    // delete
+    this.todoListSrv.deleteAllCompletedTodo();
 
     return;
   }

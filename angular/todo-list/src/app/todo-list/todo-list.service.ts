@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Todo } from './todo.model';
+// Filter
+import { Filter } from './interface.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -26,9 +28,15 @@ export class TodoListService {
   }
 
   // getTodoList - 取得待辦事項列表
-  getTodoList(): Todo[] {
-    // get
-    return this.todoList;
+  getTodoList(filter: Filter | null): Todo[] {
+    // get all
+    if (filter === null) {
+      return this.todoList;
+    }
+    // get filter
+    return this.todoList.filter(
+      (todo: Todo) => todo.getIsCompleted() === filter.IsCompleted
+    );
   }
 
   // deleteTodo = 刪除待辦事項
@@ -43,6 +51,16 @@ export class TodoListService {
   updateTodo(todo: Todo, index: number): void {
     // replace
     this.todoList.splice(index, 1, todo);
+
+    return;
+  }
+
+  // deleteAllCompletedTodo - 刪除所有已完成待辦事項
+  deleteAllCompletedTodo(): void {
+    // delete
+    this.todoList = this.todoList.filter(
+      (todo: Todo) => todo.getIsCompleted() === false
+    );
 
     return;
   }

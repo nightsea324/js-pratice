@@ -5,7 +5,7 @@
       class="new-todo"
       placeholder="What needs to be done?"
       autofocus
-      (keyup.enter)="createTodo($event); getTodoList()"
+      (keyup.enter)="createTodo($event); getTodoList(null)"
     />
   </header>
 
@@ -21,13 +21,13 @@
           <input
             class="toggle"
             type="checkbox"
-            (click)="clickIsCompleted(todo); getTodoList()"
+            (click)="clickIsCompleted(todo); getTodoList(null)"
             [checked]="todo.getIsCompleted()"
           />
           <label (dblclick)="todo.editModeOn()">{{ todo.getTitle() }}</label>
           <button
             class="destroy"
-            (click)="deleteTodo(index); getTodoList()"
+            (click)="deleteTodo(index); getTodoList(null)"
           ></button>
         </div>
         <input
@@ -42,4 +42,30 @@
       </li>
     </ul>
   </section>
+  <footer class="footer" *ngIf="todoList.length">
+    <span class="todo-count">
+      <strong>{{ todoList.length }}</strong>
+      {{ todoList.length > 1 ? "items" : "item" }} left
+    </span>
+    <ul class="filters">
+      <li>
+        <a href="javascript:;" (click)="getTodoList(null)"> All </a>
+      </li>
+
+      <li>
+        <a href="javascript:;" (click)="getTodoList(false)"> Active </a>
+      </li>
+
+      <li>
+        <a href="javascript:;" (click)="getTodoList(true)"> Completed </a>
+      </li>
+    </ul>
+    <button
+      class="clear-completed"
+      *ngIf="todoList.length"
+      (click)="deleteAllCompletedTodo(); getTodoList(null)"
+    >
+      Clear completed
+    </button>
+  </footer>
 </section>
